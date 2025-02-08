@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
   plugins: [vue()],
   define: {
-    'process.env.NODE_ENV': '"production"', 
+    'process.env.NODE_ENV': '"production"',
   },
   build: {
     lib: {
@@ -13,20 +13,21 @@ export default defineConfig({
       fileName: (format) => `wialon-chat-widget.${format}.js`, // Формат имени итогового файла
       formats: ['umd'], // Формат сборки (UMD для использования через <script>)
     },
-    cssCodeSplit: true,  // Разделение стилей по файлам
+    cssCodeSplit: true, // Разделение стилей по файлам
     rollupOptions: {
+      external: ['vue'], // Указываем, что Vue внешняя зависимость, а не часть бандла
       output: {
         globals: {
-          vue: 'Vue', // Указываем Vue как глобальную переменную
+          vue: 'Vue', // Указываем, что Vue будет доступен глобально
         },
-        assetFileNames: 'wialon-chat-widget.css', // Генерация файла для стилей, если это необходимо
+        assetFileNames: 'wialon-chat-widget.css',
         intro: `
           (function() {
             if (typeof window !== 'undefined' && window.Vue) {
               window.WialonChatWidget = {
                 init: function(options) {
                   console.log("Инициализация виджета", options);
-                  const appInstance = createApp(App);
+                  const appInstance = Vue.createApp(App);
                   appInstance.use(PrimeVue, {
                     theme: { preset: CustomAura }
                   });
