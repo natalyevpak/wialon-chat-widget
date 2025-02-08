@@ -21,17 +21,23 @@ export default defineConfig({
         },
         assetFileNames: 'wialon-chat-widget.css', // Генерация файла для стилей, если это необходимо
         intro: `
-          window.WialonChatWidget = {
-            init: function(options) {
-              console.log("Инициализация виджета", options);
-              const appInstance = createApp(App);
-              appInstance.use(PrimeVue, {
-                theme: { preset: CustomAura }
-              });
-              appInstance.mount(options.container);
+          (function() {
+            if (typeof window !== 'undefined' && window.Vue) {
+              window.WialonChatWidget = {
+                init: function(options) {
+                  console.log("Инициализация виджета", options);
+                  const appInstance = createApp(App);
+                  appInstance.use(PrimeVue, {
+                    theme: { preset: CustomAura }
+                  });
+                  appInstance.mount(options.container);
+                }
+              };
+              window.WialonChatWidget.init({ container: '#wialon-chat-container' });
+            } else {
+              console.error("Ошибка: Vue не загружен.");
             }
-          };
-          window.WialonChatWidget.init({ container: '#wialon-chat-container' });
+          })();
         `, // Автоматическая инициализация виджета при загрузке
       },
     },
