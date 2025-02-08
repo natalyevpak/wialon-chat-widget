@@ -1,0 +1,41 @@
+.chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .chat-box {
+    width: 250px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+  }
+  
+  .chat-header {
+    background: var(--primary-color, #007ad9);
+    color: white;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px 8px 0px 0px;
+  }
+  
+  .chat-body {
+    padding: 10px;
+  }
+
+  #wialon-chat-container .chat-widget {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+  }

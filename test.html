@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест Wialon Chat Widget</title>
+</head>
+<body>
+
+    <h1>Проверяем Wialon Chat Widget</h1>
+
+    <!-- Контейнер для виджета -->
+    <div id="wialon-chat-container"></div>
+
+    <!-- Подключаем внешний JavaScript-скрипт -->
+    <script src="./dist/wialon-chat-widget.umd.js"></script>
+    <script>
+        window.onload = function () {
+            if (window.WialonChatWidget) {
+                window.WialonChatWidget.init({
+                    container: "#wialon-chat-container"
+                });
+            } else {
+                console.error("❌ WialonChatWidget не найден!");
+            }
+        };
+    </script>
+
+</body>
+</html>
