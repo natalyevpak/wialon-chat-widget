@@ -1,5 +1,5 @@
 import './assets/main.css';  // Подключаем main.css
-import './assets/base.css';   // Подключаем base.css
+// import './assets/base.css';   // Подключаем base.css
 import './assets/chat-widget.css';   // Подключаем base.css
 
 
